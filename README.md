@@ -1,26 +1,46 @@
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # spareparts
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
-The goal of spareparts is to ...
+**spareparts** is a depot for one-off functions analyzing data through
+pipelines that will be updated through time. Currently existing
+pipelines are outlind below:
 
-## Installation
+- Analysis of thermal endurance challenges to measure V02 max
+  (`TEdriftR()`)
 
-You can install the development version of spareparts from [GitHub](https://github.com/) with:
+## Getting Started
+
+You can install the development version of **spareparts** from
+[GitHub](https://github.com/jsalole/spareparts) with `pak()`, or in base
+R with `install.packages()`.
 
 ``` r
 # install.packages("pak")
 pak::pak("jsalole/spareparts")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
-library(spareparts)
-## basic example code
+library("spareparts")
 ```
 
+This will get the package into your R session.
+
+## Examples
+
+This will become populated as functions are added.
+
+## Authours
+
+- **Jack Salole** - [jsalole](https://github.com/jsalole)
+
+## Acknowledgments
+
+This collection of functions has been generated for and with the support
+of colleagues listed below. \* **K. Garvey** (TEdriftR) \* **P. Ouyang**
+(TEdriftR) \* **F. O’Dacre** (TEdriftR)
