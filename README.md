@@ -42,5 +42,8 @@ This will become populated as functions are added.
 ## Acknowledgments
 
 This collection of functions has been generated for and with the support
-of colleagues listed below. \* **K. Garvey** (TEdriftR) \* **P. Ouyang**
-(TEdriftR) \* **F. O’Dacre** (TEdriftR)
+of colleagues listed below.
+
+- **K. Garvey** (TEdriftR)
+- **P. Ouyang** (TEdriftR)
+- **F. O’Dacre** (TEdriftR)
