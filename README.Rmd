@@ -44,13 +44,15 @@ This will get the package into your R session.
 
 ```{r}
 head(thermal_endure)
-TEdriftR(thermal_endure)
+data_01 <- TEdriftR(thermal_endure)
+head(data_01$VO2max_candidates)
 ```
 
 ```{r}
 head(expedata)
 head(markers)
-VO2FMS(expedata, markers)
+data_02 <- VO2FMS(expedata, markers)
+head(data_02$VO2_max_candidates)
 ```
 
 
