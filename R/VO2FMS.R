@@ -17,7 +17,7 @@
 #'  "Excur.X.Start" are measurments taken from the excurrent (afte speciemen chamber). X is a placeholder for numbers 1:5, indicating the sections during trial.
 #'
 #'
-#' @import dplyr lubridate purrr slider tidyr hms
+#' @import dplyr purrr slider tidyr
 #'
 VO2FMS = function(data, markers) {
   # correct percents and flow rate
@@ -27,7 +27,7 @@ VO2FMS = function(data, markers) {
   # Need to confirm flow rate is correct units
 
   # correct time
-  data$Time = as_hms(data$Time)
+  data$Time = hms::as_hms(data$Time)
   data$Time_since_start =
     data = data %>%
       dplyr::mutate(

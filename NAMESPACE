@@ -3,7 +3,6 @@
 export(TEdriftR)
 export(VO2FMS)
 import(dplyr)
-import(hms)
 import(lubridate)
 import(purrr)
 import(slider)
