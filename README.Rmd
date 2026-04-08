@@ -21,8 +21,8 @@ knitr::opts_chunk$set(
 
 **spareparts** is a depot for one-off functions analyzing data through pipelines that will be updated through time. Currently existing pipelines are outlind below:
 
-- Analysis of thermal endurance challenges to measure V02 max (`TEdriftR()`)
-- Analysis of metabolic rate from the feild metabolic system (`VO2FMS()`)
+- Analysis of thermal endurance challenges to measure V02 max `TEdriftR()`
+- Analysis of metabolic rate from the feild metabolic system `VO2FMS()`
 
 ## Getting Started
 

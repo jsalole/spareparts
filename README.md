@@ -12,9 +12,8 @@ pipelines that will be updated through time. Currently existing
 pipelines are outlind below:
 
 - Analysis of thermal endurance challenges to measure V02 max
-  (`TEdriftR()`)
-- Analysis of metabolic rate from the feild metabolic system
-  (`VO2FMS()`)
+  `TEdriftR()`
+- Analysis of metabolic rate from the feild metabolic system `VO2FMS()`
 
 ## Getting Started
 
