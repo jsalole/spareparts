@@ -34,7 +34,7 @@ You can install the development version of **spareparts** from
 pak::pak("jsalole/spareparts")
 ```
 
-``` r
+``` {r}
 library("spareparts")
 ```
 
@@ -42,12 +42,12 @@ This will get the package into your R session.
 
 ## Examples
 
-``` r
+```{r}
 head(thermal_endure)
 TEdriftR(thermal_endure)
 ```
 
-``` r
+```{r}
 head(expedata)
 head(markers)
 VO2FMS(expedata, markers)
