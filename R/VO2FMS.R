@@ -1,10 +1,10 @@
-#' Get thermal endurance metrics from LabChart output
+#' Get thermal endurance metrics from FMS output
 #'
 #' @description
-#' This function calculates respirometry metrics from a single-analyzer setup, that accounts for drift over time. This works by taking incurrent and excurrent measurements at test before and after the testing period to account for baseline differences. Then, incurrents taken throughout the trialling period are used to create a 'drift slope' throughout the run, which corrects excurrent measures. These corrected measures are then used to calculate rolling VO2 max measures.
+#' This function calculates respirometry metrics from a single-analyzer setup, that accounts for drift over time. This works by taking incurrent measurements throughout the trialling period to create a 'drift slope' throughout the run, which corrects excurrent measures. These corrected measures are then used to calculate rolling VO2 max measures.
 #'
-#'
-#' @param data A dataframe with 5+ columns. Five of the columns must have the name and content of: O2Corrected = oxygen levels, CO2Corrected = CO2 levels, Flow Rate = the flow rate, Cmt Text = an indicator of what section is what, Time = current time in hh:mm:ss. See details section for more information on `Cmt Text`.
+#' @param data A dataframe with 4+ columns. Four of the columns must have the names: O2 = oxygen levels, CO2 = CO2 levels, FR = the flow rate, Time = current time in hh:mm:ss.
+#' @param markers A dataframe with 2 columns, second and marker. Second is the time since the start of the trial, in seconds. Marker is "B" for baseline (incurrent) or "S" for sample (Excurrent)
 #'
 #' @returns A list of the original data, and dataframes of 10 candidates for important values.
 #'
@@ -17,23 +17,24 @@
 #'  "Excur.X.Start" are measurments taken from the excurrent (afte speciemen chamber). X is a placeholder for numbers 1:5, indicating the sections during trial.
 #'
 #'
-#' @import dplyr lubridate purrr slider tidyr
+#' @import dplyr lubridate purrr slider tidyr hms
 #'
-TEdriftR = function(data) {
+VO2FMS = function(data, markers) {
   # correct percents and flow rate
-  data$O2Corrected = data$O2Corrected / 100
-  data$CO2Corrected = data$CO2Corrected / 100
-  data$Flow.Rate = data$Flow.Rate * 1000
+  data$O2 = data$O2 / 100
+  data$CO2 = data$CO2 / 100
+
+  # Need to confirm flow rate is correct units
 
   # correct time
-  data$Time = hms(data$Time)
-
-  data = data %>%
-    dplyr::mutate(
-      is_end = grepl("end", Cmt.Text, ignore.case = TRUE)
-    ) %>% # if cmt.text contains end, returns TRUE for $is_end column
-    dplyr::filter(!is_end) %>% # keeps rows if $is_end column is false
-    dplyr::select(-is_end) # we chuck out this helper row
+  data$Time = as_hms(data$Time)
+  data$Time_since_start =
+    data = data %>%
+      dplyr::mutate(
+        is_end = grepl("end", Cmt.Text, ignore.case = TRUE)
+      ) %>% # if cmt.text contains end, returns TRUE for $is_end column
+      dplyr::filter(!is_end) %>% # keeps rows if $is_end column is false
+      dplyr::select(-is_end) # we chuck out this helper row
 
   O2_group_means = data %>%
     group_by(Cmt.Text) %>%

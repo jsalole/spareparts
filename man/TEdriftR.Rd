@@ -7,11 +7,17 @@
 TEdriftR(data)
 }
 \arguments{
-\item{data}{A dataframe.}
+\item{data}{A dataframe with 5+ columns. Five of the columns must have the name and content of: O2Corrected = oxygen levels, CO2Corrected = CO2 levels, Flow Rate = the flow rate, Cmt Text = an indicator of what section is what, Time = current time in hh:mm:ss. See details section for more information on \verb{Cmt Text}.}
 }
 \value{
 A list of the original data, and dataframes of 10 candidates for important values.
 }
 \description{
-Get thermal endurance metrics from LabChart output
+This function calculates respirometry metrics from a single-analyzer setup, that accounts for drift over time. This works by taking incurrent and excurrent measurements at test before and after the testing period to account for baseline differences. Then, incurrents taken throughout the trialling period are used to create a 'drift slope' throughout the run, which corrects excurrent measures. These corrected measures are then used to calculate rolling VO2 max measures.
+}
+\details{
+The \verb{data$Cmt Text} variable \strong{must} have the following levels.
+"Baseline.Incur.Start", "Baseline.Excur.Start", "Last.Incur.Start", "Last.Excur.Start". These are baseline measurements taken with no speciemen in the chamber.
+"Incur.X.Start" are measurements taken from the incurrent (before speciement chamber). X is a placeholder for numbers 1:5, indicating the sections during trial.
+"Excur.X.Start" are measurments taken from the excurrent (afte speciemen chamber). X is a placeholder for numbers 1:5, indicating the sections during trial.
 }
