@@ -42,6 +42,17 @@ This will get the package into your R session.
 
 ## Examples
 
+``` r
+head(thermal_endure)
+TEdriftR(thermal_endure)
+```
+
+``` r
+head(expedata)
+head(markers)
+VO2FMS(expedata, markers)
+```
+
 
 ## Authours
 
@@ -50,9 +61,10 @@ This will get the package into your R session.
 
 ## Acknowledgments
 
-This collection of functions has been generated for and with the support of colleagues listed below.
+This collection of functions and example datasets has been generated with the support
+of colleagues listed below.
 
-- **K. Garvey**: TEdriftR
-- **P. Ouyang**: TEdriftR
-- **F. O'Dacre**: TEdriftR
-- **A. Eaton**: `VO2FMS`, and datasets (expedata, markers)
+- **K. Garvey:** `TEdriftR`, and datasets (thermal_endure)
+- **P. Ouyang:** `TEdriftR`
+- **F. O’Dacre:** `TEdriftR`
+- **A. Eaton:** `VO2FMS`, and datasets (expedata, markers)
