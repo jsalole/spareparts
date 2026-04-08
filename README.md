@@ -13,12 +13,13 @@ pipelines are outlind below:
 
 - Analysis of thermal endurance challenges to measure V02 max
   (`TEdriftR()`)
+- Analysis of metabolic rate from the feild metabolic system
+  (`VO2FMS()`)
 
 ## Getting Started
 
 You can install the development version of **spareparts** from
-[GitHub](https://github.com/jsalole/spareparts) with `pak()`, or in base
-R with `install.packages()`.
+[GitHub](https://github.com/jsalole/spareparts) with `pak()`.
 
 ``` r
 # install.packages("pak")
@@ -33,8 +34,6 @@ This will get the package into your R session.
 
 ## Examples
 
-This will become populated as functions are added.
-
 ## Authours
 
 - **Jack Salole** - [jsalole](https://github.com/jsalole)
@@ -44,6 +43,7 @@ This will become populated as functions are added.
 This collection of functions has been generated for and with the support
 of colleagues listed below.
 
-- **K. Garvey** (TEdriftR)
-- **P. Ouyang** (TEdriftR)
-- **F. O’Dacre** (TEdriftR)
+- **K. Garvey**: TEdriftR
+- **P. Ouyang**: TEdriftR
+- **F. O’Dacre**: TEdriftR
+- **A. Eaton**: `VO2FMS`, and datasets (expedata, markers)

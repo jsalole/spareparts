@@ -22,5 +22,20 @@ utils::globalVariables(c(
   "VO2_max",
   "VCO2_max",
   "VO2_max_30s",
-  "VCO2_max_30s"
+  "VCO2_max_30s",
+  "marker",
+  "number",
+  "O2",
+  "time_since_start",
+  "mean_O2",
+  "mean_time",
+  "next_O2",
+  "next_time",
+  "O2_interp",
+  "FR",
+  "CO2",
+  "VO2",
+  "VCO2",
+  "VO2_30s",
+  "VCO2_30s"
 ))

@@ -2,24 +2,25 @@
 % Please edit documentation in R/VO2FMS.R
 \name{VO2FMS}
 \alias{VO2FMS}
-\title{Get thermal endurance metrics from FMS output}
+\title{Calculate Respirometry Metrics}
 \usage{
 VO2FMS(data, markers)
 }
 \arguments{
-\item{data}{A dataframe with 4+ columns. Four of the columns must have the names: O2 = oxygen levels, CO2 = CO2 levels, FR = the flow rate, Time = current time in hh:mm:ss.}
+\item{data}{Exported expedata file}
 
-\item{markers}{A dataframe with 2 columns, second and marker. Second is the time since the start of the trial, in seconds. Marker is "B" for baseline (incurrent) or "S" for sample (Excurrent)}
+\item{markers}{Dataframe of timepoints and labels}
 }
 \value{
-A list of the original data, and dataframes of 10 candidates for important values.
+A named list containing:
+\describe{
+\item{data}{The full joined dataset with VO2, VCO2, and rolling means.}
+\item{VO2_min_candidates}{Top 10 rows with lowest 30s VO2.}
+\item{VO2_max_candidates}{Top 10 rows with highest 30s VO2.}
+\item{VCO2_min_candidates}{Top 10 rows with lowest 30s VCO2.}
+\item{VCO2_max_candidates}{Top 10 rows with highest 30s VCO2.}
+}
 }
 \description{
-This function calculates respirometry metrics from a single-analyzer setup, that accounts for drift over time. This works by taking incurrent measurements throughout the trialling period to create a 'drift slope' throughout the run, which corrects excurrent measures. These corrected measures are then used to calculate rolling VO2 max measures.
-}
-\details{
-The \verb{data$Cmt Text} variable \strong{must} have the following levels.
-"Baseline.Incur.Start", "Baseline.Excur.Start", "Last.Incur.Start", "Last.Excur.Start". These are baseline measurements taken with no speciemen in the chamber.
-"Incur.X.Start" are measurements taken from the incurrent (before speciement chamber). X is a placeholder for numbers 1:5, indicating the sections during trial.
-"Excur.X.Start" are measurments taken from the excurrent (afte speciemen chamber). X is a placeholder for numbers 1:5, indicating the sections during trial.
+Calculate Respirometry Metrics
 }
